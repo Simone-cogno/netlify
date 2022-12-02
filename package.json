@@ -1,0 +1,24 @@
+{
+  "name": "finance-serverless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simone-cogno/netlify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Simone-cogno/netlify/issues"
+  },
+  "homepage": "https://github.com/Simone-cogno/netlify#readme",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "lodash": "^4.17.21",
+    "yahoo-finance2": "^2.3.10"
+  }
+}
