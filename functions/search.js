@@ -78,8 +78,8 @@ exports.handler = async (event) => {
     }
 
     //https://github.com/gadicc/node-yahoo-finance2/blob/HEAD/docs/modules/quote.md
-    const quote = await yahooFinance.quote('INTC');
-    const quoteSummary = await yahooFinance.quoteSummary('INTC', { modules: [ "defaultKeyStatistics" ] });
+    const quote = await yahooFinance.quote(query.ticker);
+    const quoteSummary = await yahooFinance.quoteSummary(query.ticker, { modules: [ "defaultKeyStatistics" ] });
     const defaultKeyStatistics = quoteSummary.defaultKeyStatistics;
 
     console.log(quote);
