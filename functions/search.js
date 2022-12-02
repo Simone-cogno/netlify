@@ -35,16 +35,17 @@ const structure = {
 exports.handler = async (event) => {
     const query = qs.parse(event.rawQuery);
 
-    let  results = await yahooFinance.quoteSummary('AAPL', {
-        modules: ["balanceSheetHistory", "incomeStatementHistory"]
-    });
+    const quote = await yahooFinance.quote('INTC');
 
-    const incomeStatement = results.incomeStatementHistory.incomeStatementHistory.map(item => _.pick(item, [
 
-    ]))
+    console.log(quote);
+    console.log(quote.trailingAnnualDividendYield * 100);
 
     return {
         statusCode: 200,
-        body: JSON.stringify(results.balanceSheetHistory.balanceSheetStatements)
+        body: JSON.stringify({
+            ticket: 'INTC',
+            dividendYield: quote.trailingAnnualDividendYield
+        })
     };
 };
