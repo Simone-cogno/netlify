@@ -87,7 +87,7 @@ exports.handler = async (event) => {
     console.log(defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.pegRatio]);
     console.log(defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.enterpriseToEbitda]);
 
-    let dividendYield = ("" + quote.trailingAnnualDividendYield).replace('.', ',');
+    let dividendYield = quote.trailingAnnualDividendYield;
     let pegRatio = defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.pegRatio];
     let enterpriseToEbitda = defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.enterpriseToEbitda];
 
