@@ -67,6 +67,10 @@ const quoteSummaryStructure = {
 };
 
 
+function convertNumberToGooleSheetFormat(number){
+    return ("" + number).replace('.', ',');
+}
+
 exports.handler = async (event) => {
     const query = qs.parse(event.rawQuery);
 
@@ -87,9 +91,9 @@ exports.handler = async (event) => {
     console.log(defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.pegRatio]);
     console.log(defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.enterpriseToEbitda]);
 
-    let dividendYield = quote.trailingAnnualDividendYield;
-    let pegRatio = defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.pegRatio];
-    let enterpriseToEbitda = defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.enterpriseToEbitda];
+    let dividendYield = convertNumberToGooleSheetFormat(quote.trailingAnnualDividendYield);
+    let pegRatio = convertNumberToGooleSheetFormat(defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.pegRatio]);
+    let enterpriseToEbitda = convertNumberToGooleSheetFormat(defaultKeyStatistics[quoteSummaryStructure.defaultKeyStatistics.enterpriseToEbitda]);
 
     return {
         statusCode: 200,
