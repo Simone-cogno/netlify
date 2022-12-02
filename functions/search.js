@@ -48,11 +48,13 @@ exports.handler = async (event) => {
     console.log(quote);
     console.log(quote.trailingAnnualDividendYield * 100);
 
+    let dividendYield = ("" + quote.trailingAnnualDividendYield).replace('.', ',');
+
     return {
         statusCode: 200,
         body: JSON.stringify({
             ticket: query.ticker,
-            dividendYield: quote.trailingAnnualDividendYield
+            dividendYield
         })
     };
 };
