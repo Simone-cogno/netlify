@@ -35,7 +35,14 @@ const structure = {
 exports.handler = async (event) => {
     const query = qs.parse(event.rawQuery);
 
-    const quote = await yahooFinance.quote('INTC');
+    if(query.ticker == null){
+        return {
+            statusCode: 200,
+            body: JSON.stringify({})
+        };
+    }
+
+    const quote = await yahooFinance.quote(query.ticker);
 
 
     console.log(quote);
@@ -44,7 +51,7 @@ exports.handler = async (event) => {
     return {
         statusCode: 200,
         body: JSON.stringify({
-            ticket: 'INTC',
+            ticket: query.ticker,
             dividendYield: quote.trailingAnnualDividendYield
         })
     };
